@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Amazon Advanced Search -->
+
+<head>
+  <title>Amazon Advanced Search</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="header-section">
+    <div class="container text-center">
+    </br>
+    <a href="Index.html"><img src="images/refresh.png" style="width:50px;height:37px;"></a></br>
+    </br>
+    <h5><b><span style='background:lime;mso-highlight:lime'>Amazon Historical Price Trackers</span></b></h5>
+    </br>
+    <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-ca.png" style="width:156px;height:86px;"></a>&nbsp;
+    <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-us.png" style="width:156px;height:86px;"></a>&nbsp;
+    <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="width:156px;height:86px;"></a></br>
+    </br>
+    <span style='background:rgb(205, 217, 236);mso-highlight:rgb(205, 217, 236)'>Choose your Amazon locale before searching product price history. Default: United States</span></br>
+    </br>
+    <h5><b><span style='background:lime;mso-highlight:lime'>Limit Search to Products Sold Directly by Amazon Canada</span></b></h5>
+    </br>
+    <a href="https://www.amazon.ca/" target="_blank"><img src="images/amazon-ca.png" style="width:313px;height:149px;"></a></br>
+    </br>
+    </div>
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+    <form>
+    <div class="form-group">
+    <label for="textInput1"><b><span style='background:yellow;mso-highlight:yellow'>Search:</span></b></label>
+    <input type="text" class="form-control" id="textInput1">
+    </div>
+    <div class="form-group">
+    <p hidden><input id="RFC2396" name="RFC2396" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="urlencode" onclick="URLEncode(), getInputValue()">Generate Link</button>
+    </form>
+
+    <div class="result-container mt-4">
+    <p class="alert alert-success" id="finalLink">Nothing to show</p>
+    <button class="btn btn-outlined-primary" onclick="copyToClipboard()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+    </div>
+
+    <hr/>
+    
+<div class="header-section">
+    <div class="container text-center">
+    <h5><b><span style='background:lime;mso-highlight:lime'>Limit Search to Products Sold by Amazon Canada Warehouse Deals</span></b></h5>
+    </br>
+    <a href="https://www.amazon.ca/b?node=8929975011" target="_blank"><img src="images/amazon-warehouse-ca.png" style="width:313px;height:149px;"></a></br>
+    </br>
+    <span style='background:rgb(205, 217, 236);mso-highlight:rgb(205, 217, 236)'>Deep Discounts on Open-Box, Pre-Owned, and, Used Items</span></br>
+    </br>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="textInput2"><b><span style='background:yellow;mso-highlight:yellow'>Search:</span></b></label>
+    <input type="text" class="form-control" id="textInput2">
+    </div>
+    <div class="form-group">
+    <p hidden><input id="RFC2396-2" name="RFC2396-2" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="output2" onclick="URLEncode2(), getInputValue2()">Generate Link</button>
+    </form>
+  
+    <div class="result-container mt-4">
+    <p class="alert alert-success" id="finalLink2">Nothing to show</p>
+    <input type="hidden" id="input">
+    <button class="btn btn-outlined-primary" onclick="copyToClipboard2()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+    </div>
+
+    <hr/>
+
+  <div class="header-section">
+    <div class="container text-center">
+    <h5><b><span style='background:lime;mso-highlight:lime'>Amazon Canada: Seller Profile</span></b></h5>
+    </br>
+    <a href="https://www.amazon.ca/" target="_blank"><img src="images/amazon-ca-logo.png" style="width:313px;height:84px;"></a></br>
+    </br>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="textInput5"><b><span style='background:yellow;mso-highlight:yellow'>Enter Seller ID:</span></b></label>
+    <input type="text" class="form-control" id="textInput5">
+    </div>
+    <p hidden><input id="RFC2396-5" name="RFC2396-5" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="output5" onclick="URLEncode5(), getInputValue5()">Generate Link</button>
+    </form>
+            
+    <div class="result-container mt-4">
+    <p class="alert alert-success" id="finalLink5">Nothing to show</p>
+    <input type="hidden" id="input">
+    <button class="btn btn-outlined-primary" onclick="copyToClipboard5()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+    </div>
+
+    <hr/>
+    
+<div class="header-section">
+    <div class="container text-center">
+    <h5><b><span style='background:lime;mso-highlight:lime'>Limit Search to Products Sold by Amazon US</span></b></h5>
+    </br>
+    <a href="https://www.amazon.com/" target="_blank"><img src="images/amazon-us.png" style="width:313px;height:149px;"></a></br>
+    </br>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="textInput3"><b><span style='background:yellow;mso-highlight:yellow'>Search:</span></b></label>
+    <input type="text" class="form-control" id="textInput3">
+    </div>
+    <p hidden><input id="RFC2396-3" name="RFC2396-3" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="output3" onclick="URLEncode3(), getInputValue3()">Generate Link</button>
+    </form>
+            
+    <div class="result-container mt-4">
+    <p class="alert alert-success" id="finalLink3">Nothing to show</p>
+    <input type="hidden" id="input">
+    <button class="btn btn-outlined-primary" onclick="copyToClipboard3()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+    </div>
+
+    <hr/>
+    
+<div class="header-section">
+    <div class="container text-center">
+    <h5><b><span style='background:lime;mso-highlight:lime'>Limit Search to Products Sold by Amazon US Warehouse Deals</span></b></h5>
+    </br>
+    <a href="https://www.amazon.com/b?node=10158976011" target="_blank"><img src="images/amazon-warehouse-us.png" style="width:313px;height:149px;"></a></br>
+    </br>
+    <span style='background:rgb(205, 217, 236);mso-highlight:rgb(205, 217, 236)'>Deep Discounts on Open-Box, Pre-Owned, and, Used Items</span></br>
+    </br>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="textInput4"><b><span style='background:yellow;mso-highlight:yellow'>Search:</span></b></label>
+    <input type="text" class="form-control" id="textInput4">
+    </div>
+    <p hidden><input id="RFC2396-4" name="RFC2396-4" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="output4" onclick="URLEncode4(), getInputValue4()">Generate Link</button>
+    </form>
+            
+    <div class="result-container mt-4">
+    <p class="alert alert-success" id="finalLink4">Nothing to show</p>
+    <input type="hidden" id="input">
+    <button class="btn btn-outlined-primary" onclick="copyToClipboard4()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+    </div>
+
+    <hr/>
+    
+<div class="header-section">
+    <div class="container text-center">
+    <h5><b><span style='background:lime;mso-highlight:lime'>Amazon US: Seller Profile</span></b></h5>
+    </br>
+    <a href="https://www.amazon.com/" target="_blank"><img src="images/amazon-us-logo.png" style="width:313px;height:84px;"></a></br>
+    </br>
+    </div>
+    <form>
+    <div class="form-group">
+    <label for="textInput5"><b><span style='background:yellow;mso-highlight:yellow'>Enter Seller ID:</span></b></label>
+    <input type="text" class="form-control" id="textInput6">
+    </div>
+    <p hidden><input id="RFC2396-6" name="RFC2396-6" type="CHECKBOX" checked="checked" /></p>
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary" type="button" id="output6" onclick="URLEncode6(), getInputValue6()">Generate Link</button>
+    </form>
+          
+  <div class="result-container mt-4">
+  <p class="alert alert-success" id="finalLink6">Nothing to show</p>
+  <input type="hidden" id="input">
+  <button class="btn btn-outlined-primary" onclick="copyToClipboard6()"><span style='background:rgb(212, 237, 218);mso-highlight:rgb(212, 237, 218)'>Copy</span></button>
+  </div>
+
+<script>
+
+function URLEncode( )
+{
+  var plaintext = document.getElementById('textInput1').value;
+  if (document.getElementById('RFC2396').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput1').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput1').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput1').select();
+  return false;
+};
+
+function getInputValue( )
+{
+    let directLink = '';
+    let inputValue1 = document.getElementById('textInput1').value;
+    directLink = 'https://www.amazon.ca/s?k=' + inputValue1 + '&emi=A3DWYIK6Y9EEQB';
+    var plaintext = directLink;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput1").value = "";
+};
+
+function copyToClipboard()
+{
+    let text = document.getElementById('finalLink').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text);
+}
+
+function URLEncode2( )
+{
+  var plaintext = document.getElementById('textInput2').value;
+  if (document.getElementById('RFC2396-2').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput2').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput2').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput2').select();
+  return false;
+};
+
+function getInputValue2( )
+{
+    let directLink2 = '';
+    let inputValue2 = document.getElementById('textInput2').value;
+    directLink2 = 'https://www.amazon.ca/s?k=' + inputValue2 + '&emi=AUJBRIGYRJ3Q8';
+    var plaintext = directLink2;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink2').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput2").value = "";
+};
+
+function copyToClipboard2()
+{
+    let text2 = document.getElementById('finalLink2').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text2);
+}
+
+function URLEncode3( )
+{
+  var plaintext = document.getElementById('textInput3').value;
+  if (document.getElementById('RFC2396-3').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput3').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput3').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput3').select();
+  return false;
+};
+
+function getInputValue3( )
+{
+    let directLink3 = '';
+    let inputValue3 = document.getElementById('textInput3').value;
+    directLink3 = 'https://www.amazon.com/s?k=' + inputValue3 + '&emi=ATVPDKIKX0DER';
+    var plaintext = directLink3;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink3').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput3").value = "";
+};
+
+function copyToClipboard3()
+{
+    let text3 = document.getElementById('finalLink3').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text3);
+}
+
+function URLEncode4( )
+{
+  var plaintext = document.getElementById('textInput4').value;
+  if (document.getElementById('RFC2396-4').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput4').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput4').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput4').select();
+  return false;
+};
+
+function getInputValue4( )
+{
+    let directLink4 = '';
+    let inputValue4 = document.getElementById('textInput4').value;
+    directLink4 = 'https://www.amazon.com/s?k=' + inputValue4 + '&emi=A2L77EE7U53NWQ';
+    var plaintext = directLink4;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink4').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput4").value = "";
+};
+
+function copyToClipboard4()
+{
+    let text4 = document.getElementById('finalLink4').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text4);
+}
+
+function URLEncode5( )
+{
+  var plaintext = document.getElementById('textInput5').value;
+  if (document.getElementById('RFC2396-5').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput5').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput5').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput5').select();
+  return false;
+};
+
+function getInputValue5( )
+{
+    let directLink5 = '';
+    let inputValue5 = document.getElementById('textInput5').value;
+    directLink5 = 'https://www.amazon.ca/gp/aag/main?ie=UTF8&seller=' + inputValue5;
+    var plaintext = directLink5;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink5').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput5").value = "";
+};
+
+function copyToClipboard5()
+{
+    let text5 = document.getElementById('finalLink5').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text5);
+}
+
+function URLEncode6( )
+{
+  var plaintext = document.getElementById('textInput6').value;
+  if (document.getElementById('RFC2396-6').checked) {  // OLD Browser mode
+    // The Javascript escape and unescape functions do not correspond
+    // with what browsers actually do...
+    var SAFECHARS = "0123456789" +          // Numeric
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +  // Alphabetic
+            "abcdefghijklmnopqrstuvwxyz" +
+            "-_.!~*'()";          // RFC2396 Mark characters
+    var HEX = "0123456789ABCDEF";
+
+    var encoded = "";
+    for (var i = 0; i < plaintext.length; i++ ) {
+      var ch = plaintext.charAt(i);
+        if (ch == " ") {
+          encoded += "+";       // x-www-urlencoded, rather than %20
+      } else if (SAFECHARS.indexOf(ch) != -1) {
+          encoded += ch;
+      } else {
+          var charCode = ch.charCodeAt(0);
+        if (charCode > 255) {
+            alert( "Unicode Character '" 
+                          + ch 
+                          + "' cannot be encoded using standard RFC2396 encoding.\\n" +
+                    "(URL encoding only supports 8-bit characters.)\\n" +
+                "A space (+) will be substituted." );
+          encoded += "+";
+        } else {
+          encoded += "%";
+          encoded += HEX.charAt((charCode >> 4) & 0xF);
+          encoded += HEX.charAt(charCode & 0xF);
+        }
+      }
+    } // for
+
+    document.getElementById('textInput6').value = encoded;
+  } else {  // Modern browser mode
+    document.getElementById('textInput6').value = encodeURIComponent(plaintext);
+  }
+  document.getElementById('textInput6').select();
+  return false;
+};
+
+function getInputValue6( )
+{
+    let directLink6 = '';
+    let inputValue6 = document.getElementById('textInput6').value;
+    directLink6 = 'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=' + inputValue6;
+    var plaintext = directLink6;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
+    var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    document.getElementById('finalLink6').innerHTML=plaintext1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+
+    document.getElementById("textInput6").value = "";
+};
+
+function copyToClipboard6()
+{
+    let text6 = document.getElementById('finalLink6').innerText;
+    event.preventDefault();
+    navigator.clipboard.writeText(text6);
+}
+
+</script>
+</body>
+</html>
