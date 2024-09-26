@@ -552,7 +552,7 @@ function getInputValue5( )
 {
     let directLink5 = '';
     let inputValue5 = document.getElementById('textInput5').value;
-    directLink5 = 'https://www.walmart.ca/en/search?q=' + inputValue5 + '&facet=f_SellerType_en:Walmart';
+    directLink5 = 'https://www.walmart.ca/en/search?q=' + inputValue5 + '&facet=sellertype:Walmart';
     var plaintext = directLink5;
     var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     var plaintext1=plaintext.replace(exp, "<a href='$1'>$1</a>");
