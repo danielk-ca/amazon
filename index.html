@@ -20,13 +20,9 @@
     </br>
     <h5><b><span style='background:lime;mso-highlight:lime'>Amazon Historical Price Trackers</span></b></h5>
     </br>
-    <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-ca.png" style="width:156px;height:86px;"></a>&nbsp;
-    <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-us.png" style="width:156px;height:86px;"></a>&nbsp;
-    <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="width:156px;height:86px;"></a></br>
-    </br>
-    <span style='background:rgb(205, 217, 236);mso-highlight:rgb(205, 217, 236)'>On Keepa, manually select your Amazon locale before searching product price history. The default is Amazon US (amazon.com)</span></br>
-    </br>
-    <img src="images/keepa-chooselocale.png" style="width:313px;height:202px;"></a></br>
+    <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-ca.png" style="width:171.2px;height:171.2px;"></a>&nbsp;
+    <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-us.png" style="width:171.2px;height:171.2px;"></a>&nbsp;
+    <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="width:171.2px;height:171.2px;"></a></br>
     </br>
 
 <!-- Amazon Canada (1) -->
@@ -233,7 +229,11 @@ function URLEncode() {
     var plaintext = document.getElementById('textInput1').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    // Do not URL encode any of the unreserved special characters that RFC 3986 defines: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+    // The reserved characters have to be encoded only under certain circumstances. The reserved characters are: ! * ' ( ) ; : @ & = + $ , / ? % # [ ]
+    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // Replace calls: Replace encoded versions of special characters with the actual characters, effectively "un-encoding" them
+
+
 
     document.getElementById('textInput1').value = encoded;
     document.getElementById('textInput1').select();
@@ -259,7 +259,7 @@ function URLEncode2() {
     var plaintext = document.getElementById('textInput2').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // Replace calls: Replace encoded versions of special characters with the actual characters, effectively "un-encoding" them
 
     document.getElementById('textInput2').value = encoded;
     document.getElementById('textInput2').select();
