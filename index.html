@@ -228,12 +228,22 @@
 function URLEncode() {
     var plaintext = document.getElementById('textInput1').value;
 
-    // Using encodeURIComponent for better encoding
+    // URL Encoding the Query String using encodeURIComponent before parsing API Request Link
+    // Since encodeURIComponent function does not encode the following characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+    // encodeURI vs encodeURIComponent: https://web.archive.org/web/20230130210452/https://thisthat.dev/encode-uri-vs-encode-uri-component/
+    // Mozilla Developer Documentation on encodeURIComponent() Function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
     // Do not URL encode any of the unreserved special characters that RFC 3986 defines: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
-    // The reserved characters have to be encoded only under certain circumstances. The reserved characters are: ! * ' ( ) ; : @ & = + $ , / ? % # [ ]
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // Replace calls: Replace encoded versions of special characters with the actual characters, effectively "un-encoding" them
-
-
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput1').value = encoded;
     document.getElementById('textInput1').select();
@@ -259,7 +269,17 @@ function URLEncode2() {
     var plaintext = document.getElementById('textInput2').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // Replace calls: Replace encoded versions of special characters with the actual characters, effectively "un-encoding" them
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput2').value = encoded;
     document.getElementById('textInput2').select();
@@ -285,7 +305,17 @@ function URLEncode3() {
     var plaintext = document.getElementById('textInput3').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput3').value = encoded;
     document.getElementById('textInput3').select();
@@ -311,7 +341,17 @@ function URLEncode4() {
     var plaintext = document.getElementById('textInput4').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput4').value = encoded;
     document.getElementById('textInput4').select();
@@ -337,7 +377,17 @@ function URLEncode5() {
     var plaintext = document.getElementById('textInput5').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput5').value = encoded;
     document.getElementById('textInput5').select();
@@ -363,7 +413,17 @@ function URLEncode6() {
     var plaintext = document.getElementById('textInput6').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput6').value = encoded;
     document.getElementById('textInput6').select();
@@ -389,7 +449,17 @@ function URLEncode7() {
     var plaintext = document.getElementById('textInput7').value;
 
     // Using encodeURIComponent for better encoding
-    var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+').replace(/!/g, '%21').replace(/#/g, '%23').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/-/g, '%2D').replace(/\./g, '%2E').replace(/_/g, '%5F').replace(/~/g, '%7E'); // This basically uses regular expressions to do a global replace on characters encodeURIComponent misses
+    var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +)
+        .replace(/-/g, '%2D') // Convert - to %2D
+        .replace(/_/g, '%5F') // Convert _ to %5F
+        .replace(/\./g, '%2E') // Convert . to %2E
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '%7E') // Convert ~ to %7E
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
 
     document.getElementById('textInput7').value = encoded;
     document.getElementById('textInput7').select();
