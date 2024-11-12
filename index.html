@@ -398,7 +398,7 @@ function URLEncode5() {
 };
 
 function getInputValue5() {
-    let directLink5 = 'https://www.walmart.ca/en/search?q=' + document.getElementById('textInput5').value + '&facet=sellertype:Walmart';
+    let directLink5 = 'https://www.walmart.ca/en/search?q=' + document.getElementById('textInput5').value + '&facet=retailer_type:Walmart';
     document.getElementById('finalLink5').innerHTML = `<a href='${directLink5}' target='_blank'>${directLink5}</a>`;
     document.getElementById("textInput5").value = "";
 };
