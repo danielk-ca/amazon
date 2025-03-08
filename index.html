@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Online Shopping Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <style>
+        body {
+            background: #ffffff;
+        }
+
+        .alert {
+            display: none;
+        }
+
+        /* Add some styling to the SVG icon */
+        .searchicon {
+            width: 20px; /* Adjust size as needed */
+            height: 20px; /* Adjust size as needed */
+            fill: currentColor; /* This makes the icon inherit the text color */
+        }
+
+        /* Add some styling to the SVG icon */
+        .clearicon {
+            width: 20px; /* Adjust size as needed */
+            height: 20px; /* Adjust size as needed */
+            fill: currentColor; /* This makes the icon inherit the text color */
+        }
+
+        /* Remove border radius for text input, clear button, and search button */
+        #textInput1, #clearBtn1, #searchBtn1, #textInput2, #clearBtn2, #searchBtn2 {
+            border-radius: 0 !important;  /* Ensure the border radius is removed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center mt-5">
+        <a href="Index.html"><img src="images/refresh.png"></a></br>
+        </br>
+        <h2><b><span style='background:rgb(0, 200, 122)'>Advanced Online Shopping Search</span></b></h2>
+        </br>
+        <h5><b><span style='background:rgb(169, 213, 181)'>Amazon Historical Price Trackers</span></b></h5>
+        </br>
+        <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-ca.png" style="width:125px"></a>&nbsp;
+        <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel-us.png" style="width:125px"></a>&nbsp;
+        <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="width:125px"></a></br>
+        </br>
+
+        <hr/>
+
+<!-- Amazon Canada -->
+
+        </br>
+        <h5><b><span style='background:rgb(169, 213, 181)'>Limit Search to Products Sold Directly by Amazon Canada</span></b></h5>
+        </br>
+        <a href="https://www.amazon.ca/" target="_blank"><img src="images/amazon-ca-1.png" style="width:375px"></a></br>
+        
+        <div class="col-md-6 offset-md-3 mt-4">
+            <div class="input-group mb-3">
+                <input type="text" id="textInput1" class="form-control" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary" id="clearBtn1">
+                    <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                    </svg>
+                </button>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="searchBtn1">
+                        <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="alertBox1" class="alert alert-info" role="alert"></div>
+        </div>
+
+    </br>
+
+    <hr/>
+
+<!-- Walmart Canada -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>Limit Search to Products Sold by Walmart Canada</span></b></h5>
+    </br>
+    <a href="https://www.walmart.ca/en" target="_blank"><img src="images/walmart-ca.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput2" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn2">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn2">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox2" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+<!-- RedFlagDeals -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>RedFlagDeals Search</span></b></h5>
+    </br>
+    <a href="https://forums.redflagdeals.com/" target="_blank"><img src="images/redflagdeals.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput3" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn3">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn3">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox3" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+<!-- Amazon US -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>Limit Search to Products Sold Directly by Amazon US</span></b></h5>
+    </br>
+    <a href="https://www.amazon.com/" target="_blank"><img src="images/amazon-us-1.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput4" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn4">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn4">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox4" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+<!-- Walmart US -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>Limit Search to Products Sold by Walmart US</span></b></h5>
+    </br>
+    <a href="https://www.walmart.com/" target="_blank"><img src="images/walmart-us.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput5" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn5">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn5">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox5" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+<!-- eBay US -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>eBay US Search with Shipping Location set to US</span></b></h5>
+    </br>
+    <a href="https://www.ebay.com/sch/ebayadvsearch" target="_blank"><img src="images/ebay-us.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput6" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn6">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn6">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox6" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+<!-- Slickdeals -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>Slickdeals Search</span></b></h5>
+    </br>
+    <a href="https://slickdeals.net/forums/" target="_blank"><img src="images/slickdeals.png" style="width:375px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput7" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn7">
+                <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                </svg>
+            </button>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn7">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="alertBox7" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+
+    <script>
+
+// JavaScript Section Start
+
+// Amazon Canada
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn1').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput1').value = '';
+            const alertBox1 = document.getElementById('alertBox1');
+            alertBox1.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch() {
+        const textInput = document.getElementById('textInput1').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput1').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Amazon Canada Search URLs
+
+                let directLink1 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=A3DWYIK6Y9EEQB';
+                let directLink2 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=AUJBRIGYRJ3Q8';
+                let alertBox1 = document.getElementById('alertBox1');
+
+                if (queryString) {
+                    alertBox1.innerHTML = `
+                        <a href='${directLink1}' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
+                        <a href='${directLink2}' target='_blank'>Limit Search to Products Sold by Amazon Canada Warehouse Deals</a>
+                    `;
+                    alertBox1.style.display = 'block';
+                } else {
+                    alertBox1.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn1').addEventListener('click', performSearch);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput1').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+        });
+
+// Walmart Canada
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn2').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput2').value = '';
+            const alertBox2 = document.getElementById('alertBox2');
+            alertBox2.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch2() {
+        const textInput = document.getElementById('textInput2').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput2').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Amazon US Search URLs
+
+                let directLink3 = 'https://www.walmart.ca/en/search?q=' + queryString + '&facet=retailer_type:Walmart';
+                let alertBox2 = document.getElementById('alertBox2');
+
+                if (queryString) {
+                    alertBox2.innerHTML = `
+                        <a href='${directLink3}' target='_blank'>Limit Search to Products Sold by Walmart Canada</a>
+                    `;
+                    alertBox2.style.display = 'block';
+                } else {
+                    alertBox2.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn2').addEventListener('click', performSearch2);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput2').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch2();
+        }
+        });
+
+// RedFlagDeals
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn3').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput3').value = '';
+            const alertBox3 = document.getElementById('alertBox3');
+            alertBox3.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch3() {
+        const textInput = document.getElementById('textInput3').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput3').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for RedFlagDeals Search URLs
+
+                let directLink4 = 'https://www.google.com/search?q=site:forums.redflagdeals.com+' + queryString;
+                let directLink5 = 'https://www.redflagdeals.com/search/#!/q=' + queryString + '/t=any/s=forums/p=1';
+                let alertBox3 = document.getElementById('alertBox3');
+
+                if (queryString) {
+                    alertBox3.innerHTML = `
+                        <a href='${directLink4}' target='_blank'>Open Google with Search Query</a><br><br>
+                        <a href='${directLink5}' target='_blank'>Open RedFlagDeals Forums with Search Query</a>
+                    `;
+                    alertBox3.style.display = 'block';
+                } else {
+                    alertBox3.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn3').addEventListener('click', performSearch3);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput3').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch3();
+        }
+        });
+
+// Amazon US
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn4').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput4').value = '';
+            const alertBox4 = document.getElementById('alertBox4');
+            alertBox4.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch4() {
+        const textInput = document.getElementById('textInput4').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput4').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Amazon US Search URLs
+
+                let directLink6 = 'https://www.amazon.com/s?k=' + queryString + '&emi=ATVPDKIKX0DER';
+                let directLink7 = 'https://www.amazon.com/s?k=' + queryString + '&emi=A2L77EE7U53NWQ';
+                let alertBox4 = document.getElementById('alertBox4');
+
+                if (queryString) {
+                    alertBox4.innerHTML = `
+                        <a href='${directLink6}' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
+                        <a href='${directLink7}' target='_blank'>Limit Search to Products Sold by Amazon US Warehouse Deals</a>
+                    `;
+                    alertBox4.style.display = 'block';
+                } else {
+                    alertBox4.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn4').addEventListener('click', performSearch4);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput4').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch4();
+        }
+        });
+
+// Walmart US
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn5').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput5').value = '';
+            const alertBox5 = document.getElementById('alertBox5');
+            alertBox5.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch5() {
+        const textInput = document.getElementById('textInput5').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput5').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Walmart US Search URLs
+
+                let directLink8 = 'https://www.walmart.com/search?q=' + queryString + '&facet=retailer_type:Walmart';
+                let alertBox5 = document.getElementById('alertBox5');
+
+                if (queryString) {
+                    alertBox5.innerHTML = `
+                        <a href='${directLink8}' target='_blank'>Limit Search to Products Sold by Walmart US</a>
+                    `;
+                    alertBox5.style.display = 'block';
+                } else {
+                    alertBox5.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn5').addEventListener('click', performSearch5);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput5').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch5();
+        }
+        });
+
+// eBay US
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn6').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput6').value = '';
+            const alertBox6 = document.getElementById('alertBox6');
+            alertBox6.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch6() {
+        const textInput = document.getElementById('textInput6').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput6').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for eBay US Search URLs
+
+                let directLink9 = 'https://www.ebay.com/sch/i.html?_nkw=' + queryString + '&LH_TitleDesc=1&_stpos=10007&_fcid=1';
+                let alertBox6 = document.getElementById('alertBox6');
+
+                if (queryString) {
+                    alertBox6.innerHTML = `
+                        <a href='${directLink9}' target='_blank'>Search Products Sold on eBay US with Shipping Location set to US</a>
+                    `;
+                    alertBox6.style.display = 'block';
+                } else {
+                    alertBox6.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn6').addEventListener('click', performSearch6);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput6').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch6();
+        }
+        });
+
+// Slickdeals
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn7').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput7').value = '';
+            const alertBox7 = document.getElementById('alertBox7');
+            alertBox7.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch7() {
+        const textInput = document.getElementById('textInput7').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput7').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Slickdeals Search URLs
+
+                let directLink10 = 'https://www.google.com/search?q=site:slickdeals.net+' + queryString;
+                let directLink11 = 'https://slickdeals.net/newsearch.php?q=' + queryString + '&searcharea=deals';
+                let alertBox7 = document.getElementById('alertBox7');
+
+                if (queryString) {
+                    alertBox7.innerHTML = `
+                        <a href='${directLink10}' target='_blank'>Open Google with Search Query</a><br><br>
+                        <a href='${directLink11}' target='_blank'>Open Slickdeals with Search Query</a>
+                    `;
+                    alertBox7.style.display = 'block';
+                } else {
+                    alertBox7.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn7').addEventListener('click', performSearch7);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput7').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch7();
+        }
+        });
+
+// JavaScript Section End
+
+</script>
+
+</body>
+
+</html>
