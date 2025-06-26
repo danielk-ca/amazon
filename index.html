@@ -391,16 +391,19 @@
 
                 // Define Variables for Amazon Canada Search URLs
 
-                let directLink1 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=A3DWYIK6Y9EEQB';
-                let directLink2 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=AUJBRIGYRJ3Q8';
+                let amazoncaLink1 = 'https://www.amazon.ca/s?k=' + queryString;
+                let amazoncaLink2 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=A3DWYIK6Y9EEQB';
+                let amazoncaLink3 = 'https://www.amazon.ca/s?k=' + queryString + '&emi=AUJBRIGYRJ3Q8';
                 let alertBox1 = document.getElementById('alertBox1');
 
                 if (queryString) {
                     alertBox1.innerHTML = `
+                        <img src="images/amazonsearch.png" style="height:26px;"><br>
+                        <a href='${amazoncaLink1}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
                         <img src="images/amazon.png" style="height:26px;"><br>
-                        <a href='${directLink1}' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
+                        <a href='${amazoncaLink2}' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
                         <img src="images/amazonresale.png" style="height:26px;"><br>
-                        <a href='${directLink2}' target='_blank'>Limit Search to Products Sold by Amazon Canada Resale</a>
+                        <a href='${amazoncaLink3}' target='_blank'>Limit Search to Products Sold by Amazon Canada Resale</a>
                     `;
                     alertBox1.style.display = 'block';
                 } else {
@@ -460,12 +463,12 @@
 
                 // Define Variables for Amazon US Search URLs
 
-                let directLink3 = 'https://www.walmart.ca/en/search?q=' + queryString + '&facet=retailer_type:Walmart';
+                let walmartcaLink1 = 'https://www.walmart.ca/en/search?q=' + queryString + '&facet=retailer_type:Walmart';
                 let alertBox2 = document.getElementById('alertBox2');
 
                 if (queryString) {
                     alertBox2.innerHTML = `
-                        <a href='${directLink3}' target='_blank'>Limit Search to Products Sold by Walmart Canada</a>
+                        <a href='${walmartcaLink1}' target='_blank'>Limit Search to Products Sold by Walmart Canada</a>
                     `;
                     alertBox2.style.display = 'block';
                 } else {
@@ -525,14 +528,14 @@
 
                 // Define Variables for RedFlagDeals Search URLs
 
-                let directLink4 = 'https://www.wholesaleclub.ca/en/search?search-bar=' + queryString;
-                let directLink5 = 'https://www.google.com/search?q=site:wholesaleclub.ca/en/+' + queryString;
+                let wholesaleclubLink1 = 'https://www.wholesaleclub.ca/en/search?search-bar=' + queryString;
+                let wholesaleclubLink2 = 'https://www.google.com/search?q=site:wholesaleclub.ca/en/+' + queryString;
                 let alertBox3 = document.getElementById('alertBox3');
 
                 if (queryString) {
                     alertBox3.innerHTML = `
-                        <a href='${directLink4}' target='_blank'>Open Wholesale Club with Search Query</a><br><br>
-                        <a href='${directLink5}' target='_blank'>Open Google with Search Query</a>
+                        <a href='${wholesaleclubLink1}' target='_blank'>Open Wholesale Club with Search Query</a><br><br>
+                        <a href='${wholesaleclubLink2}' target='_blank'>Open Google with Search Query</a>
                     `;
                     alertBox3.style.display = 'block';
                 } else {
@@ -592,14 +595,14 @@
 
                 // Define Variables for RedFlagDeals Search URLs
 
-                let directLink6 = 'https://www.google.com/search?q=site:forums.redflagdeals.com+' + queryString;
-                let directLink7 = 'https://www.redflagdeals.com/search/#!/q=' + queryString + '/t=any/s=forums/p=1';
+                let redflagdealsLink1 = 'https://www.google.com/search?q=site:forums.redflagdeals.com+' + queryString;
+                let redflagdealsLink2 = 'https://www.redflagdeals.com/search/#!/q=' + queryString + '/t=any/s=forums/p=1';
                 let alertBox4 = document.getElementById('alertBox4');
 
                 if (queryString) {
                     alertBox4.innerHTML = `
-                        <a href='${directLink6}' target='_blank'>Open Google with Search Query</a><br><br>
-                        <a href='${directLink7}' target='_blank'>Open RedFlagDeals Forums with Search Query</a>
+                        <a href='${redflagdealsLink1}' target='_blank'>Open Google with Search Query</a><br><br>
+                        <a href='${redflagdealsLink2}' target='_blank'>Open RedFlagDeals Forums with Search Query</a>
                     `;
                     alertBox4.style.display = 'block';
                 } else {
@@ -659,12 +662,12 @@
 
                 // Define Variables for RedFlagDeals Search URLs
 
-                let directLink14 = 'https://flipp.com/search/' + queryString;
+                let flippcaLink1 = 'https://flipp.com/search/' + queryString;
                 let alertBox9 = document.getElementById('alertBox9');
 
                 if (queryString) {
                     alertBox9.innerHTML = `
-                        <a href='${directLink14}' target='_blank'>Open Flipp with Search Query</a>
+                        <a href='${flippcaLink1}' target='_blank'>Open Flipp with Search Query</a>
                     `;
                     alertBox9.style.display = 'block';
                 } else {
@@ -725,12 +728,12 @@
 
                 // Define Variables for RedFlagDeals Search URLs
 
-                let directLink15 = 'https://cse.google.com/cse?cx=dbd5b90ed5e716a16&q=' + queryString;
+                let customcaLink1 = 'https://cse.google.com/cse?cx=dbd5b90ed5e716a16&q=' + queryString;
                 let alertBox10 = document.getElementById('alertBox10');
 
                 if (queryString) {
                     alertBox10.innerHTML = `
-                        <a href='${directLink15}' target='_blank'>Open Custom Canadian Retailer Search with Search Query</a>
+                        <a href='${customcaLink1}' target='_blank'>Open Custom Canadian Retailer Search with Search Query</a>
                     `;
                     alertBox10.style.display = 'block';
                 } else {
@@ -790,16 +793,19 @@
 
                 // Define Variables for Amazon US Search URLs
 
-                let directLink8 = 'https://www.amazon.com/s?k=' + queryString + '&emi=ATVPDKIKX0DER';
-                let directLink9 = 'https://www.amazon.com/s?k=' + queryString + '&emi=A2L77EE7U53NWQ';
+                let amazonusLink1 = 'https://www.amazon.com/s?k=' + queryString;
+                let amazonusLink2 = 'https://www.amazon.com/s?k=' + queryString + '&emi=ATVPDKIKX0DER';
+                let amazonusLink3 = 'https://www.amazon.com/s?k=' + queryString + '&emi=A2L77EE7U53NWQ';
                 let alertBox5 = document.getElementById('alertBox5');
 
                 if (queryString) {
                     alertBox5.innerHTML = `
+                        <img src="images/amazonsearch.png" style="height:26px;"><br>
+                        <a href='${amazonusLink1}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
                         <img src="images/amazon.png" style="height:26px;"><br>
-                        <a href='${directLink8}' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
+                        <a href='${amazonusLink2}' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
                         <img src="images/amazonresale.png" style="height:26px;"><br>
-                        <a href='${directLink9}' target='_blank'>Limit Search to Products Sold by Amazon US Resale</a>
+                        <a href='${amazonusLink3}' target='_blank'>Limit Search to Products Sold by Amazon US Resale</a>
                     `;
                     alertBox5.style.display = 'block';
                 } else {
@@ -859,12 +865,12 @@
 
                 // Define Variables for Walmart US Search URLs
 
-                let directLink10 = 'https://www.walmart.com/search?q=' + queryString + '&facet=retailer_type:Walmart';
+                let walmartusLink1 = 'https://www.walmart.com/search?q=' + queryString + '&facet=retailer_type:Walmart';
                 let alertBox6 = document.getElementById('alertBox6');
 
                 if (queryString) {
                     alertBox6.innerHTML = `
-                        <a href='${directLink10}' target='_blank'>Limit Search to Products Sold by Walmart US</a>
+                        <a href='${walmartusLink1}' target='_blank'>Limit Search to Products Sold by Walmart US</a>
                     `;
                     alertBox6.style.display = 'block';
                 } else {
@@ -924,12 +930,12 @@
 
                 // Define Variables for eBay US Search URLs
 
-                let directLink11 = 'https://www.ebay.com/sch/i.html?_nkw=' + queryString + '&LH_TitleDesc=1&_stpos=10007&_fcid=1';
+                let ebayusLink1 = 'https://www.ebay.com/sch/i.html?_nkw=' + queryString + '&LH_TitleDesc=1&_stpos=10007&_fcid=1';
                 let alertBox7 = document.getElementById('alertBox7');
 
                 if (queryString) {
                     alertBox7.innerHTML = `
-                        <a href='${directLink11}' target='_blank'>Search Products Sold on eBay US with Shipping Location set to US</a>
+                        <a href='${ebayusLink1}' target='_blank'>Search Products Sold on eBay US with Shipping Location set to US</a>
                     `;
                     alertBox7.style.display = 'block';
                 } else {
@@ -989,14 +995,14 @@
 
                 // Define Variables for Slickdeals Search URLs
 
-                let directLink12 = 'https://www.google.com/search?q=site:slickdeals.net+' + queryString;
-                let directLink13 = 'https://slickdeals.net/newsearch.php?q=' + queryString + '&searcharea=deals';
+                let slickdealsLink1 = 'https://www.google.com/search?q=site:slickdeals.net+' + queryString;
+                let slickdealsLink2 = 'https://slickdeals.net/newsearch.php?q=' + queryString + '&searcharea=deals';
                 let alertBox8 = document.getElementById('alertBox8');
 
                 if (queryString) {
                     alertBox8.innerHTML = `
-                        <a href='${directLink12}' target='_blank'>Open Google with Search Query</a><br><br>
-                        <a href='${directLink13}' target='_blank'>Open Slickdeals with Search Query</a>
+                        <a href='${slickdealsLink1}' target='_blank'>Open Google with Search Query</a><br><br>
+                        <a href='${slickdealsLink2}' target='_blank'>Open Slickdeals with Search Query</a>
                     `;
                     alertBox8.style.display = 'block';
                 } else {
