@@ -32,7 +32,7 @@
         }
 
         /* Remove border radius for text input, clear button, and search button */
-        #textInput1, #clearBtn1, #searchBtn1, #textInput2, #clearBtn2, #searchBtn2, #textInput3, #clearBtn3, #searchBtn3, #textInput4, #clearBtn4, #searchBtn4, #textInput5, #clearBtn5, #searchBtn5, #textInput6, #clearBtn6, #searchBtn6, #textInput7, #clearBtn7, #searchBtn7, #textInput8, #clearBtn8, #searchBtn8 {
+        #textInput1, #clearBtn1, #searchBtn1, #textInput2, #clearBtn2, #searchBtn2, #textInput3, #clearBtn3, #searchBtn3, #textInput4, #clearBtn4, #searchBtn4, #textInput5, #clearBtn5, #searchBtn5, #textInput6, #clearBtn6, #searchBtn6, #textInput7, #clearBtn7, #searchBtn7, #textInput8, #clearBtn8, #searchBtn8, #textInput9, #clearBtn9, #searchBtn9 {
             border-radius: 0 !important;  /* Ensure the border radius is removed */
         }
     </style>
@@ -137,6 +137,34 @@
 
     <hr/>
 
+<!-- Costco Canada -->
+
+    </br>
+    <h5><b><span style='background:rgb(169, 213, 181)'>Costco Canada Search</span></b></h5>
+    </br>
+    <a href="https://www.costco.ca/" target="_blank"><img src="images/costco-ca.png" style="height:104px"></a></br>
+
+    <div class="col-md-6 offset-md-3 mt-4">
+        <div class="input-group mb-3">
+            <input type="text" id="textInput9" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary" id="clearBtn9">
+            <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+            </svg>
+        </button>
+        <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="searchBtn9">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+                </button>
+        </div>
+            </div>
+        <div id="alertBox9" class="alert alert-info" role="alert"></div>
+    </div>
+
+    </br>
+
+    <hr/>
+    
 <!-- RedFlagDeals -->
 
     </br>
@@ -1018,6 +1046,73 @@
         document.getElementById('textInput8').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             performSearch8();
+        }
+        });
+
+// Costco Canada
+
+        // Handle Clear Button Click
+        document.getElementById('clearBtn9').addEventListener('click', function() {
+            // Clear the textbox
+            document.getElementById('textInput9').value = '';
+            const alertBox9 = document.getElementById('alertBox9');
+            alertBox9.style.display = 'none'; // Hide the alert component
+        });
+
+        // Handle function to perform the search
+        function performSearch9() {
+        const textInput = document.getElementById('textInput9').value.trim();
+
+            // Proceed if textbox is not empty
+            if (textInput) {
+
+                const plaintext = document.getElementById('textInput9').value;
+
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
+
+                // Define Variables for Costco Canada Search URLs
+
+                let costcocaLink1 = 'https://www.google.com/search?q=site:costco.ca+' + queryString;
+                let costcocaLink2 = 'https://www.costco.ca/s?langId=-24&keyword=' + queryString + '&refine=item_program_eligibility-InWarehouse%257C%257Citem_program_eligibility-ShipIt%257C%257Citem_program_eligibility-2DayDelivery';
+                let alertBox9 = document.getElementById('alertBox9');
+
+                if (queryString) {
+                    alertBox9.innerHTML = `
+                        <a href='${costcocaLink1}' target='_blank'>Open Google with Search Query</a><br><br>
+                        <a href='${costcocaLink2}' target='_blank'>Open Costco Canada with Search Query</a>
+                    `;
+                    alertBox9.style.display = 'block';
+                } else {
+                    alertBox9.style.display = 'none';
+                }
+            }
+        }
+
+        // Trigger search on button click
+        document.getElementById('searchBtn9').addEventListener('click', performSearch9);
+
+        // Trigger search on pressing Enter in the textbox
+        document.getElementById('textInput9').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch9();
         }
         });
 
