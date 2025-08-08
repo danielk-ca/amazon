@@ -228,21 +228,22 @@
 </br>
 <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:104px"></a></br>
 
+
 <div class="col-md-6 offset-md-3 mt-4">
     <div class="input-group mb-3">
-        <input type="text" id="textInput9" class="form-control" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary" id="clearBtn9">
+        <input type="text" id="textInputflippca" class="form-control" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" id="clearBtnflippca">
             <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
             </svg>
         </button>
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="searchBtn9">
+            <button class="btn btn-outline-secondary" id="searchBtnflippca">
                 <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
             </button>
         </div>
     </div>
-    <div id="alertBox9" class="alert alert-info" role="alert"></div>
+    <div id="alertBoxflippca" class="alert alert-info" role="alert"></div>
 </div>
 
 </br>
@@ -258,19 +259,19 @@
 
 <div class="col-md-6 offset-md-3 mt-4">
     <div class="input-group mb-3">
-        <input type="text" id="textInput10" class="form-control" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary" id="clearBtn10">
+        <input type="text" id="textInputcustomca" class="form-control" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" id="clearBtncustomca">
             <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
             </svg>
         </button>
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="searchBtn10">
+            <button class="btn btn-outline-secondary" id="searchBtncustomca">
                 <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
             </button>
         </div>
     </div>
-    <div id="alertBox10" class="alert alert-info" role="alert"></div>
+    <div id="alertBoxcustomca" class="alert alert-info" role="alert"></div>
 </div>
 
 </br>
@@ -517,7 +518,7 @@
     
                 const queryString = encoded;
 
-                // Define Variables for Amazon US Search URLs
+                // Define Variables for Walmart Canada Search URLs
 
                 let walmartcaLink1 = 'https://www.walmart.ca/en/search?q=' + queryString + '&facet=retailer_type:Walmart';
                 let alertBox2 = document.getElementById('alertBox2');
@@ -582,7 +583,7 @@
     
                 const queryString = encoded;
 
-                // Define Variables for RedFlagDeals Search URLs
+                // Define Variables for Wholesale Club Search URLs
 
                 let wholesaleclubLink1 = 'https://www.wholesaleclub.ca/en/search?search-bar=' + queryString;
                 let wholesaleclubLink2 = 'https://www.google.com/search?q=site:wholesaleclub.ca/en/+' + queryString;
@@ -680,21 +681,21 @@
 // Flipp Canada
 
         // Handle Clear Button Click
-        document.getElementById('clearBtn9').addEventListener('click', function() {
+        document.getElementById('clearBtnflippca').addEventListener('click', function() {
             // Clear the textbox
-            document.getElementById('textInput9').value = '';
-            const alertBox9 = document.getElementById('alertBox9');
-            alertBox9.style.display = 'none'; // Hide the alert component
+            document.getElementById('textInputflippca').value = '';
+            const alertBoxflippca = document.getElementById('alertBoxflippca');
+            alertBoxflippca.style.display = 'none'; // Hide the alert component
         });
 
         // Handle function to perform the search
-        function performSearch9() {
-        const textInput = document.getElementById('textInput9').value.trim();
+        function performSearchflippca() {
+        const textInput = document.getElementById('textInputflippca').value.trim();
 
             // Proceed if textbox is not empty
             if (textInput) {
 
-                const plaintext = document.getElementById('textInput9').value;
+                const plaintext = document.getElementById('textInputflippca').value;
 
                 // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
                 // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
@@ -702,7 +703,7 @@
                 // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
     
                 // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
-                const encoded = encodeURIComponent(plaintext)
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
                 .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
                 .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
                 .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
@@ -716,50 +717,50 @@
     
                 const queryString = encoded;
 
-                // Define Variables for RedFlagDeals Search URLs
+                // Define Variables for Flipp Canada Search URLs
 
                 let flippcaLink1 = 'https://flipp.com/search/' + queryString;
-                let alertBox9 = document.getElementById('alertBox9');
+                let alertBoxflippca = document.getElementById('alertBoxflippca');
 
                 if (queryString) {
-                    alertBox9.innerHTML = `
+                    alertBoxflippca.innerHTML = `
                         <a href='${flippcaLink1}' target='_blank'>Open Flipp with Search Query</a>
                     `;
-                    alertBox9.style.display = 'block';
+                    alertBoxflippca.style.display = 'block';
                 } else {
-                    alertBox9.style.display = 'none';
+                    alertBoxflippca.style.display = 'none';
                 }
             }
         }
 
         // Trigger search on button click
-        document.getElementById('searchBtn9').addEventListener('click', performSearch9);
+        document.getElementById('searchBtnflippca').addEventListener('click', performSearchflippca);
 
         // Trigger search on pressing Enter in the textbox
-        document.getElementById('textInput9').addEventListener('keydown', function(event) {
+        document.getElementById('textInputflippca').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            performSearch9();
+            performSearchflippca();
         }
         });
 
 // Custom Canadian Retailer Search
 
         // Handle Clear Button Click
-        document.getElementById('clearBtn10').addEventListener('click', function() {
+        document.getElementById('clearBtncustomca').addEventListener('click', function() {
             // Clear the textbox
-            document.getElementById('textInput10').value = '';
-            const alertBox10 = document.getElementById('alertBox10');
-            alertBox10.style.display = 'none'; // Hide the alert component
+            document.getElementById('textInputcustomca').value = '';
+            const alertBoxcustomca = document.getElementById('alertBoxcustomca');
+            alertBoxcustomca.style.display = 'none'; // Hide the alert component
         });
 
         // Handle function to perform the search
-        function performSearch10() {
-        const textInput = document.getElementById('textInput10').value.trim();
+        function performSearchcustomca() {
+        const textInput = document.getElementById('textInputcustomca').value.trim();
 
             // Proceed if textbox is not empty
             if (textInput) {
 
-                const plaintext = document.getElementById('textInput10').value;
+                const plaintext = document.getElementById('textInputcustomca').value;
 
                 // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
                 // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
@@ -782,29 +783,29 @@
     
                 const queryString = encoded;
 
-                // Define Variables for RedFlagDeals Search URLs
+                // Define Variables for Custom Canadian Retailer Search URLs
 
                 let customcaLink1 = 'https://cse.google.com/cse?cx=dbd5b90ed5e716a16&q=' + queryString;
-                let alertBox10 = document.getElementById('alertBox10');
+                let alertBoxcustomca = document.getElementById('alertBoxcustomca');
 
                 if (queryString) {
-                    alertBox10.innerHTML = `
+                    alertBoxcustomca.innerHTML = `
                         <a href='${customcaLink1}' target='_blank'>Open Custom Canadian Retailer Search with Search Query</a>
                     `;
-                    alertBox10.style.display = 'block';
+                    alertBoxcustomca.style.display = 'block';
                 } else {
-                    alertBox10.style.display = 'none';
+                    alertBoxcustomca.style.display = 'none';
                 }
             }
         }
 
         // Trigger search on button click
-        document.getElementById('searchBtn10').addEventListener('click', performSearch10);
+        document.getElementById('searchBtncustomca').addEventListener('click', performSearchcustomca);
 
         // Trigger search on pressing Enter in the textbox
-        document.getElementById('textInput10').addEventListener('keydown', function(event) {
+        document.getElementById('textInputcustomca').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            performSearch10();
+            performSearchcustomca();
         }
         });
 
@@ -1183,7 +1184,7 @@
     
                 const queryString = encoded;
 
-                // Define Variables for Costco Canada Search URLs
+                // Define Variables for Giant Tiger Search URLs
 
                 let gianttigerLink1 = 'https://www.gianttiger.com/search?q=' + queryString;
                 let gianttigerLink2 = 'https://www.google.com/search?q=site:gianttiger.com+' + queryString;
