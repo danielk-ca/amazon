@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Search</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <style>
+
+/* ----------------------
+   Fonts
+---------------------- */
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-MediumItalic.woff2') format('woff2'),
+    url('fonts/GoogleSans-MediumItalic.woff') format('woff'),
+    url('fonts/GoogleSans-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-Bold.woff2') format('woff2'),
+    url('fonts/GoogleSans-Bold.woff') format('woff'),
+    url('fonts/GoogleSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-Italic.woff2') format('woff2'),
+    url('fonts/GoogleSans-Italic.woff') format('woff'),
+    url('fonts/GoogleSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-Medium.woff2') format('woff2'),
+    url('fonts/GoogleSans-Medium.woff') format('woff'),
+    url('fonts/GoogleSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-Regular.woff2') format('woff2'),
+    url('fonts/GoogleSans-Regular.woff') format('woff'),
+    url('fonts/GoogleSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+  font-family: 'Google Sans';
+    src: url('fonts/GoogleSans-BoldItalic.woff2') format('woff2'),
+    url('fonts/GoogleSans-BoldItalic.woff') format('woff'),
+    url('fonts/GoogleSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+  }
+
+/* ----------------------
+   Root & Body
+---------------------- */
+
+        :root {
+            --body-color: #1a1a1a;
+            --collapse-bg: #f7f7f7;
+            --collapse-color: #1a1a1a;
+            --collapse-line-color: #d4d4d4;
+            --collapse-icon-color: #b8336a;
+        }
+
+        body {
+            font-family: 'Google Sans';
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            color: var(--body-color);
+            background: #ffffff;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .refresh-btn {
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .search-wrapper {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: #999;
+        }
+
+        /* Ensures both icons are equal-sized buttons on all platforms */
+        .btn {
+            background: white;
+            border: none;
+            border-left: 1px solid #ccc;
+            width: 46px;        /* width */
+            height: 40px;       /* height */
+            padding: 0;         /* remove extra padding */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            flex-shrink: 0;     /* prevents shrinking on mobile */
+        }
+
+        .btn:hover {
+            background: #f5f5f5;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Make sure SVGs scale properly inside */
+        .searchicon,
+        .clearicon {
+            width: 20px;       /* consistent icon size */
+            height: 20px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        /* Optional – tweak fill colors for consistency */
+        .searchicon {
+            fill: #333;
+        }
+
+        .clearicon {
+            fill: #999;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        details {
+            background: var(--collapse-bg);
+            color: var(--collapse-color);
+            border-radius: 8px;
+            margin: 10px auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            font-weight: bold;
+            list-style: none;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        summary:hover {
+            background: #e8e8e8;
+        }
+
+        details[open] > summary {
+            background: #f7f7f7;
+        }
+
+        .details-info {
+            border-top: 1px solid var(--collapse-line-color);
+            padding: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/refresh.png" class="refresh-btn" style="width: 40px; height: 40px; cursor: pointer;" onclick="handleRefresh()">
+        <br><br>
+            <img src="images/shoppingsearch.png" style="width:100px;"></a>
+        <div class="search-wrapper">
+            <div class="input-group">
+                <input type="text" id="textInput" class="form-control" placeholder="Search" aria-label="Search">
+                <button class="btn" id="clearBtn" title="Clear">
+                    <svg class="clearicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
+                    </svg>
+                </button>
+                <button class="btn" id="searchBtn" title="Search">
+                    <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Amazon Canada Section -->
+        <details id="section1" class="hidden">
+            <summary>
+                <img src="images/amazon-ca.png" style="height:26px;" alt="Amazon Canada">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="amazoncaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Walmart Canada Section -->
+        <details id="section2" class="hidden">
+            <summary>
+                <img src="images/walmart-ca.png" style="height:26px;" alt="Walmart Canada">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="walmartcaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Giant Tiger Section -->
+        <details id="section3" class="hidden">
+            <summary>
+                <img src="images/gianttiger-ca.png" style="height:26px;" alt="Giant Tiger">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="gianttigercaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Loblaw Companies Limited Section -->
+        <details id="section4" class="hidden">
+            <summary>
+                <img src="images/loblaw-ca.png" style="height:26px;" alt="Loblaw Companies Limited">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="loblawcaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Metro Inc. Section -->
+        <details id="section5" class="hidden">
+            <summary>
+                <img src="images/metro-ca.png" style="height:26px;" alt="Metro Inc.">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="metrocaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Empire Company Limited Section -->
+        <details id="section6" class="hidden">
+            <summary>
+                <img src="images/empire-ca.png" style="height:26px;" alt="Empire Company Limited">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="empirecaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Costco Canada Section -->
+        <details id="section7" class="hidden">
+            <summary>
+                <img src="images/costco-ca.png" style="height:26px;" alt="Costco Canada">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="costcocaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- RedFlagDeals Section -->
+        <details id="section8" class="hidden">
+            <summary>
+                <img src="images/redflagdeals-ca.png" style="height:26px;" alt="RedFlagDeals">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="redflagdealscaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Flipp Canada Section -->
+        <details id="section9" class="hidden">
+            <summary>
+                <img src="images/flipp-ca.png" style="height:26px;" alt="Flipp Canada">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="flippcaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Custom Canadian Retailer Section -->
+        <details id="section10" class="hidden">
+            <summary>
+                <img src="images/canadianretailer.png" style="height:26px;" alt="Custom Canadian Retailer Search">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="customcaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Amazon US Section -->
+        <details id="section11" class="hidden">
+            <summary>
+                <img src="images/amazon-us.png" style="height:26px;" alt="Amazon US">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="amazonusLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Walmart US Section -->
+        <details id="section12" class="hidden">
+            <summary>
+                <img src="images/walmart-us.png" style="height:26px;" alt="Walmart US">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="walmartusLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- eBay US Section -->
+        <details id="section13" class="hidden">
+            <summary>
+                <img src="images/ebay-us.png" style="height:26px;" alt="eBay US">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="ebayusLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Slickdeals Section -->
+        <details id="section14" class="hidden">
+            <summary>
+                <img src="images/slickdeals-us.png" style="height:26px;" alt="Slickdeals">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="slickdealsusLinksSection"></div>
+            </div>
+        </details>
+    </div>
+
+    <script>
+
+    // JavaScript Section Start
+    
+// Get DOM elements
+const textInput = document.getElementById('textInput');
+const searchBtn = document.getElementById('searchBtn');
+const clearBtn = document.getElementById('clearBtn');
+
+// Add event listeners
+searchBtn.addEventListener('click', handleSearch);
+clearBtn.addEventListener('click', handleClear);
+textInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        handleSearch();
+    }
+});
+
+// Add accordion toggle functionality
+for (let i = 1; i <= 14; i++) {
+    const section = document.getElementById(`section${i}`);
+    section.addEventListener('toggle', function(event) {
+        if (this.open) {
+            // Close all other sections
+            for (let j = 1; j <= 14; j++) {
+                if (i !== j) {
+                    document.getElementById(`section${j}`).removeAttribute('open');
+                }
+            }
+        }
+    });
+}
+
+function handleSearch() {
+    const query = textInput.value.trim();
+    if (!query) return;
+    
+    const queryString = encodeURIComponent(query);
+    
+    // Show all sections
+    for (let i = 1; i <= 14; i++) {
+        document.getElementById(`section${i}`).classList.remove('hidden');
+    }
+    
+    // Populate links for each section
+    populateAmazonCA(queryString);
+    populateWalmartCA(queryString);
+    populateGiantTiger(queryString);
+    populateLoblaw(queryString);
+    populateMetro(queryString);
+    populateEmpire(queryString);
+    populateCostcoCA(queryString);
+    populateRedFlagDeals(queryString);
+    populateFlipp(queryString);
+    populateCustomCA(queryString);
+    populateAmazonUS(queryString);
+    populateWalmartUS(queryString);
+    populateEbayUS(queryString);
+    populateSlickdeals(queryString);
+}
+
+function handleClear() {
+    textInput.value = '';
+    
+    // Hide and collapse all sections
+    for (let i = 1; i <= 14; i++) {
+        const section = document.getElementById(`section${i}`);
+        section.classList.add('hidden');
+        section.removeAttribute('open');
+    }
+}
+
+function handleRefresh() {
+    handleClear();
+    location.reload();
+}
+
+function populateAmazonCA(q) {
+    const section = document.getElementById('amazoncaLinksSection');
+    section.innerHTML = `
+        <img src="images/amazonsearch.png" style="height:20px;"><br>
+        <a href='https://www.amazon.ca/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
+        <img src="images/amazon.png" style="height:20px;"><br>
+        <a href='https://www.amazon.ca/s?k=${q}&emi=A3DWYIK6Y9EEQB' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
+        <img src="images/amazonresale.png" style="height:20px;"><br>
+        <a href='https://www.amazon.ca/s?k=${q}&emi=AUJBRIGYRJ3Q8' target='_blank'>Limit Search to Products Sold by Amazon Canada Resale</a>
+        `;
+}
+
+function populateWalmartCA(q) {
+    const section = document.getElementById('walmartcaLinksSection');
+    section.innerHTML = `
+        <a href='https://www.walmart.ca/en/search?q=${q}&facet=retailer_type:Walmart' target='_blank'>Limit Search to Products Sold by Walmart Canada</a>
+        `;
+}
+
+function populateGiantTiger(q) {
+    const section = document.getElementById('gianttigercaLinksSection');
+    section.innerHTML = `
+        <a href='https://www.gianttiger.com/search?q=${q}' target='_blank'>Open Giant Tiger with Search Query</a><br><br>
+        <a href='https://www.google.com/search?q=site:gianttiger.com+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateLoblaw(q) {
+    const section = document.getElementById('loblawcaLinksSection');
+    section.innerHTML = `
+        <img src="images/nofrills-ca.png" style="height:20px;"><br>
+        <a href='https://www.nofrills.ca/en/search?search-bar=${q}' target='_blank'>Open No Frills with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:nofrills.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
+        <img src="images/wholesaleclub-ca.png" style="height:20px;"><br>
+        <a href='https://www.wholesaleclub.ca/en/search?search-bar=${q}' target='_blank'>Open Wholesale Club with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:wholesaleclub.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
+        <img src="images/zehrs-ca.png" style="height:20px;"><br>
+        <a href='https://www.zehrs.ca/en/search?search-bar=${q}' target='_blank'>Open Zehrs with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:zehrs.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
+        <img src="images/superstore-ca.png" style="height:20px;"><br>
+        <a href='https://www.realcanadiansuperstore.ca/en/search?search-bar=${q}' target='_blank'>Open Real Canadian Superstore with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:realcanadiansuperstore.ca/en/+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateMetro(q) {
+    const section = document.getElementById('metrocaLinksSection');
+    section.innerHTML = `
+        <img src="images/foodbasics-ca.png" style="height:20px;"><br>
+        <a href='https://www.foodbasics.ca/search?filter=${q}' target='_blank'>Open Food Basics with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:foodbasics.ca/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
+        <img src="images/metro.png" style="height:20px;"><br>
+        <a href='https://www.metro.ca/en/online-grocery/search?filter=${q}' target='_blank'>Open Metro with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:metro.ca/+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateEmpire(q) {
+    const section = document.getElementById('empirecaLinksSection');
+    section.innerHTML = `
+        <img src="images/freshco-ca.png" style="height:20px;"><br>
+        <a href='https://www.freshco.com/?query=${q}&tab=products' target='_blank'>Open FreshCo with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:freshco.com/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
+        <img src="images/sobeys-ca.png" style="height:20px;"><br>
+        <a href='https://www.sobeys.com/?query=${q}&tab=products' target='_blank'>Open Sobeys with Search Query</a><br>
+        <a href='https://www.google.com/search?q=site:sobeys.com/+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateCostcoCA(q) {
+    const section = document.getElementById('costcocaLinksSection');
+    section.innerHTML = `
+        <a href='https://www.costco.ca/s?langId=-24&keyword=${q}&refine=item_program_eligibility-InWarehouse%257C%257Citem_program_eligibility-ShipIt%257C%257Citem_program_eligibility-2DayDelivery' target='_blank'>Open Costco Canada with Search Query</a><br><br>
+        <a href='https://www.google.com/search?q=site:costco.ca+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateRedFlagDeals(q) {
+    const section = document.getElementById('redflagdealscaLinksSection');
+    section.innerHTML = `
+        <a href='https://www.redflagdeals.com/search/#!/q=${q}/t=any/s=forums/p=1' target='_blank'>Open RedFlagDeals Forums with Search Query</a><br><br>
+        <a href='https://www.google.com/search?q=site:forums.redflagdeals.com+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateFlipp(q) {
+    const section = document.getElementById('flippcaLinksSection');
+    section.innerHTML = `
+        <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:20px;"><br>
+        <a href='https://flipp.com/search/${q}' target='_blank'>Open Flipp Canada with Search Query</a>
+        `;
+}
+
+function populateCustomCA(q) {
+    const section = document.getElementById('customcaLinksSection');
+    section.innerHTML = `
+        <a href='https://cse.google.com/cse?cx=dbd5b90ed5e716a16&q=${q}' target='_blank'>Open Custom Canadian Retailer Search with Search Query</a>
+        `;
+}
+
+function populateAmazonUS(q) {
+    const section = document.getElementById('amazonusLinksSection');
+    section.innerHTML = `
+        <img src="images/amazonsearch.png" style="height:20px;"><br>
+        <a href='https://www.amazon.com/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
+        <img src="images/amazon.png" style="height:20px;"><br>
+        <a href='https://www.amazon.com/s?k=${q}&emi=ATVPDKIKX0DER' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
+        <img src="images/amazonresale.png" style="height:20px;"><br>
+        <a href='https://www.amazon.com/s?k=${q}&emi=A2L77EE7U53NWQ' target='_blank'>Limit Search to Products Sold by Amazon US Resale</a>
+        `;
+}
+
+function populateWalmartUS(q) {
+    const section = document.getElementById('walmartusLinksSection');
+    section.innerHTML = `
+        <a href='https://www.walmart.com/search?q=${q}&facet=retailer_type:Walmart' target='_blank'>Limit Search to Products Sold by Walmart US</a>
+        `;
+}
+
+function populateEbayUS(q) {
+    const section = document.getElementById('ebayusLinksSection');
+    section.innerHTML = `
+        <a href='https://www.ebay.com/sch/i.html?_nkw=${q}&LH_TitleDesc=1&_stpos=10007&_fcid=1' target='_blank'>Search Products Sold on eBay US with Shipping Location set to US</a>
+        `;
+}
+
+function populateSlickdeals(q) {
+    const section = document.getElementById('slickdealsusLinksSection');
+    section.innerHTML = `
+        <a href='https://slickdeals.net/newsearch.php?q=${q}&searcharea=deals' target='_blank'>Open Slickdeals with Search Query</a><br><br>
+        <a href='https://www.google.com/search?q=site:slickdeals.net+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+    // JavaScript Section End
+
+    </script>
+</body>
+</html>
