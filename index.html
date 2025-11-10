@@ -70,146 +70,229 @@
    Root & Body
 ---------------------- */
 
-        :root {
-            --body-color: #1a1a1a;
-            --collapse-bg: #f7f7f7;
-            --collapse-color: #1a1a1a;
-            --collapse-line-color: #d4d4d4;
-            --collapse-icon-color: #b8336a;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Google Sans';
-            margin: 0;
-            padding: 0;
-            font-size: 1.2rem;
-            line-height: 1.2;
-            color: var(--body-color);
-            background: #ffffff;
-        }
+body {
+    font-family: 'Google Sans';
+    background-color: #ffffff;
+    padding: 20px;
+}
 
-        .container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .refresh-btn {
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
+.refresh-btn {
+    transition: transform 0.2s;
+}
 
-        .refresh-btn:hover {
-            transform: scale(1.1);
-        }
+.refresh-btn:hover {
+    transform: rotate(90deg);
+}
 
-        .search-wrapper {
-            margin: 20px auto;
-            max-width: 600px;
-        }
+/* Search wrapper and input group */
+.search-wrapper {
+    margin: 20px auto;
+    max-width: 800px;
+}
 
-        .input-group {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-        }
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-        .form-control {
-            flex: 1;
-            padding: 10px 15px;
-            border: none;
-            font-size: 1.1rem;
-            outline: none;
-        }
+.input-group:focus-within {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #999;
+}
 
-        .form-control::placeholder {
-            color: #999;
-        }
+.form-control {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 24px;
+    font-size: 16px;
+    background: transparent;
+}
 
-        /* Ensures both icons are equal-sized buttons on all platforms */
-        .btn {
-            background: white;
-            border: none;
-            border-left: 1px solid #ccc;
-            width: 46px;        /* width */
-            height: 40px;       /* height */
-            padding: 0;         /* remove extra padding */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            flex-shrink: 0;     /* prevents shrinking on mobile */
-        }
+.form-control::placeholder {
+    color: #999;
+}
 
-        .btn:hover {
-            background: #f5f5f5;
-        }
+/* Button styling */
+.btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
 
-        .btn:active {
-            transform: scale(0.95);
-        }
+.btn:hover {
+    background-color: #f0f0f0;
+}
 
-        /* Make sure SVGs scale properly inside */
-        .searchicon,
-        .clearicon {
-            width: 20px;       /* consistent icon size */
-            height: 20px;
-            flex-shrink: 0;
-            display: block;
-        }
+.btn:active {
+    background-color: #e0e0e0;
+}
 
-        /* Optional – tweak fill colors for consistency */
-        .searchicon {
-            fill: #333;
-        }
+/* Icon styling */
+.clearicon,
+.searchicon {
+    width: 24px;
+    height: 24px;
+    fill: #666;
+}
 
-        .clearicon {
-            fill: #999;
-        }
+.btn:hover .clearicon,
+.btn:hover .searchicon {
+    fill: #333;
+}
 
-        .hidden {
-            display: none;
-        }
+/* Accordion styling */
+details {
+    background: #f7f7f7;
+    margin: 12px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    transition: box-shadow 0.3s;
+}
 
-        details {
-            background: var(--collapse-bg);
-            color: var(--collapse-color);
-            border-radius: 8px;
-            margin: 10px auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-        }
+details:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 
-        summary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            padding: 1rem;
-            font-weight: bold;
-            list-style: none;
-            user-select: none;
-            transition: all 0.2s;
-        }
+details[open] {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
 
-        summary:hover {
-            background: #e8e8e8;
-        }
+summary {
+    padding: 1rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
 
-        details[open] > summary {
-            background: #f7f7f7;
-        }
+summary::-webkit-details-marker {
+    display: none;
+}
 
-        .details-info {
-            border-top: 1px solid var(--collapse-line-color);
-            padding: 1rem;
-        }
+summary:hover {
+    background-color: #e8e8e8;
+}
+
+summary img {
+    display: block;
+}
+
+.details-info {
+    padding: 0 24px 20px 24px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #d4d4d4;
+}
+
+.links-section {
+    text-align: center;
+    padding: 16px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    line-height: 1.2;
+}
+
+.links-section a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 0px;
+    transition: color 0.2s;
+}
+
+.links-section a:hover {
+    color: #1557b0;
+    text-decoration: underline;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .form-control {
+        padding: 14px 18px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .btn {
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+    }
+    
+    .clearicon,
+    .searchicon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    summary {
+        padding: 16px 20px;
+    }
+    
+    .details-info {
+        padding: 0 20px 16px 20px;
+    }
+    
+    .links-section {
+        padding: 12px;
+    }
+    
+    .links-section a {
+        font-size: 14px;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control {
+        padding: 12px 16px;
+    }
+    
+    summary {
+        padding: 14px 16px;
+    }
+    
+    summary img {
+        max-height: 22px;
+    }
+}
 
     </style>
 </head>
@@ -541,7 +624,7 @@ function populateRedFlagDeals(q) {
 function populateFlipp(q) {
     const section = document.getElementById('flippcaLinksSection');
     section.innerHTML = `
-        <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:20px;"><br>
+        <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:20px;"></a></br>
         <a href='https://flipp.com/search/${q}' target='_blank'>Open Flipp Canada with Search Query</a>
         `;
 }
