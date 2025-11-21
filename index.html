@@ -539,7 +539,9 @@ function handleRefresh() {
 function populateAmazonCA(q) {
     const section = document.getElementById('amazoncaLinksSection');
     section.innerHTML = `
-        <img src="images/amazonsearch.png" style="height:20px;"><br>
+        <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel.png" style="height:26px;"></a>&nbsp;&nbsp;&nbsp;
+        <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.ca/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
         <img src="images/amazon.png" style="height:20px;"><br>
         <a href='https://www.amazon.ca/s?k=${q}&emi=A3DWYIK6Y9EEQB' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
@@ -624,7 +626,8 @@ function populateRedFlagDeals(q) {
 function populateFlipp(q) {
     const section = document.getElementById('flippcaLinksSection');
     section.innerHTML = `
-        <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:20px;"></a></br>
+        <a href="https://www.flipp.com/flyers?postal_code=L4M4T5" target="_blank"><img src="images/flipp.png" style="height:26px;"></a></br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://flipp.com/search/${q}' target='_blank'>Open Flipp Canada with Search Query</a>
         `;
 }
@@ -639,7 +642,9 @@ function populateCustomCA(q) {
 function populateAmazonUS(q) {
     const section = document.getElementById('amazonusLinksSection');
     section.innerHTML = `
-        <img src="images/amazonsearch.png" style="height:20px;"><br>
+        <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel.png" style="height:26px;"></a>&nbsp;&nbsp;&nbsp;
+        <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.com/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
         <img src="images/amazon.png" style="height:20px;"><br>
         <a href='https://www.amazon.com/s?k=${q}&emi=ATVPDKIKX0DER' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
