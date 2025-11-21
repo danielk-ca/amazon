@@ -543,9 +543,9 @@ function populateAmazonCA(q) {
         <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.ca/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
-        <img src="images/amazon.png" style="height:20px;"><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.ca/s?k=${q}&emi=A3DWYIK6Y9EEQB' target='_blank'>Limit Search to Products Sold Directly by Amazon Canada</a><br><br>
-        <img src="images/amazonresale.png" style="height:20px;"><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.ca/s?k=${q}&emi=AUJBRIGYRJ3Q8' target='_blank'>Limit Search to Products Sold by Amazon Canada Resale</a>
         `;
 }
@@ -553,6 +553,7 @@ function populateAmazonCA(q) {
 function populateWalmartCA(q) {
     const section = document.getElementById('walmartcaLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.walmart.ca/en/search?q=${q}&facet=retailer_type:Walmart' target='_blank'>Limit Search to Products Sold by Walmart Canada</a>
         `;
 }
@@ -560,7 +561,9 @@ function populateWalmartCA(q) {
 function populateGiantTiger(q) {
     const section = document.getElementById('gianttigercaLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.gianttiger.com/search?q=${q}' target='_blank'>Open Giant Tiger with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:gianttiger.com+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -568,17 +571,28 @@ function populateGiantTiger(q) {
 function populateLoblaw(q) {
     const section = document.getElementById('loblawcaLinksSection');
     section.innerHTML = `
-        <img src="images/nofrills-ca.png" style="height:20px;"><br>
-        <a href='https://www.nofrills.ca/en/search?search-bar=${q}' target='_blank'>Open No Frills with Search Query</a><br>
+        <img src="images/nofrills-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.nofrills.ca/en/search?search-bar=${q}' target='_blank'>Open No Frills with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br> 
         <a href='https://www.google.com/search?q=site:nofrills.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
-        <img src="images/wholesaleclub-ca.png" style="height:20px;"><br>
-        <a href='https://www.wholesaleclub.ca/en/search?search-bar=${q}' target='_blank'>Open Wholesale Club with Search Query</a><br>
+        <img src="images/divider.png"</a><br><br>
+        <img src="images/wholesaleclub-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.wholesaleclub.ca/en/search?search-bar=${q}' target='_blank'>Open Wholesale Club with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:wholesaleclub.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
-        <img src="images/zehrs-ca.png" style="height:20px;"><br>
-        <a href='https://www.zehrs.ca/en/search?search-bar=${q}' target='_blank'>Open Zehrs with Search Query</a><br>
+        <img src="images/divider.png"</a><br><br>
+        <img src="images/zehrs-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.zehrs.ca/en/search?search-bar=${q}' target='_blank'>Open Zehrs with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:zehrs.ca/en/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
-        <img src="images/superstore-ca.png" style="height:20px;"><br>
-        <a href='https://www.realcanadiansuperstore.ca/en/search?search-bar=${q}' target='_blank'>Open Real Canadian Superstore with Search Query</a><br>
+        <img src="images/divider.png"</a><br><br>
+        <img src="images/superstore-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.realcanadiansuperstore.ca/en/search?search-bar=${q}' target='_blank'>Open Real Canadian Superstore with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:realcanadiansuperstore.ca/en/+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -586,11 +600,16 @@ function populateLoblaw(q) {
 function populateMetro(q) {
     const section = document.getElementById('metrocaLinksSection');
     section.innerHTML = `
-        <img src="images/foodbasics-ca.png" style="height:20px;"><br>
-        <a href='https://www.foodbasics.ca/search?filter=${q}' target='_blank'>Open Food Basics with Search Query</a><br>
+        <img src="images/foodbasics-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.foodbasics.ca/search?filter=${q}' target='_blank'>Open Food Basics with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:foodbasics.ca/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
-        <img src="images/metro.png" style="height:20px;"><br>
-        <a href='https://www.metro.ca/en/online-grocery/search?filter=${q}' target='_blank'>Open Metro with Search Query</a><br>
+        <img src="images/divider.png"</a><br><br>
+        <img src="images/metro.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.metro.ca/en/online-grocery/search?filter=${q}' target='_blank'>Open Metro with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:metro.ca/+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -598,11 +617,16 @@ function populateMetro(q) {
 function populateEmpire(q) {
     const section = document.getElementById('empirecaLinksSection');
     section.innerHTML = `
-        <img src="images/freshco-ca.png" style="height:20px;"><br>
-        <a href='https://www.freshco.com/?query=${q}&tab=products' target='_blank'>Open FreshCo with Search Query</a><br>
+        <img src="images/freshco-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.freshco.com/?query=${q}&tab=products' target='_blank'>Open FreshCo with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:freshco.com/+${q}' target='_blank'>Open Google with Search Query</a><br><br>
-        <img src="images/sobeys-ca.png" style="height:20px;"><br>
-        <a href='https://www.sobeys.com/?query=${q}&tab=products' target='_blank'>Open Sobeys with Search Query</a><br>
+        <img src="images/divider.png"</a><br><br>
+        <img src="images/sobeys-ca.png" style="height:26px;"><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.sobeys.com/?query=${q}&tab=products' target='_blank'>Open Sobeys with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:sobeys.com/+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -610,7 +634,9 @@ function populateEmpire(q) {
 function populateCostcoCA(q) {
     const section = document.getElementById('costcocaLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.costco.ca/s?langId=-24&keyword=${q}&refine=item_program_eligibility-InWarehouse%257C%257Citem_program_eligibility-ShipIt%257C%257Citem_program_eligibility-2DayDelivery' target='_blank'>Open Costco Canada with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:costco.ca+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -618,7 +644,9 @@ function populateCostcoCA(q) {
 function populateRedFlagDeals(q) {
     const section = document.getElementById('redflagdealscaLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.redflagdeals.com/search/#!/q=${q}/t=any/s=forums/p=1' target='_blank'>Open RedFlagDeals Forums with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:forums.redflagdeals.com+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
@@ -635,6 +663,7 @@ function populateFlipp(q) {
 function populateCustomCA(q) {
     const section = document.getElementById('customcaLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://cse.google.com/cse?cx=dbd5b90ed5e716a16&q=${q}' target='_blank'>Open Custom Canadian Retailer Search with Search Query</a>
         `;
 }
@@ -646,9 +675,9 @@ function populateAmazonUS(q) {
         <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.com/s?k=${q}' target='_blank'>Search Products Sold by all Sellers</a><br><br>
-        <img src="images/amazon.png" style="height:20px;"><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.com/s?k=${q}&emi=ATVPDKIKX0DER' target='_blank'>Limit Search to Products Sold Directly by Amazon US</a><br><br>
-        <img src="images/amazonresale.png" style="height:20px;"><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.amazon.com/s?k=${q}&emi=A2L77EE7U53NWQ' target='_blank'>Limit Search to Products Sold by Amazon US Resale</a>
         `;
 }
@@ -656,6 +685,7 @@ function populateAmazonUS(q) {
 function populateWalmartUS(q) {
     const section = document.getElementById('walmartusLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.walmart.com/search?q=${q}&facet=retailer_type:Walmart' target='_blank'>Limit Search to Products Sold by Walmart US</a>
         `;
 }
@@ -663,6 +693,7 @@ function populateWalmartUS(q) {
 function populateEbayUS(q) {
     const section = document.getElementById('ebayusLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.ebay.com/sch/i.html?_nkw=${q}&LH_TitleDesc=1&_stpos=10007&_fcid=1' target='_blank'>Search Products Sold on eBay US with Shipping Location set to US</a>
         `;
 }
@@ -670,7 +701,9 @@ function populateEbayUS(q) {
 function populateSlickdeals(q) {
     const section = document.getElementById('slickdealsusLinksSection');
     section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://slickdeals.net/newsearch.php?q=${q}&searcharea=deals' target='_blank'>Open Slickdeals with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:slickdeals.net+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
