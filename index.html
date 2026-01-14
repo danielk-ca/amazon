@@ -387,8 +387,18 @@ summary img {
             </div>
         </details>
 
-        <!-- RedFlagDeals Section -->
+        <!-- A1 Cash and Carry Section -->
         <details id="section8" class="hidden">
+            <summary>
+                <img src="images/a1cashandcarry-ca.png" style="height:26px;" alt="A1 Cash and Carry">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="a1cashandcarryLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- RedFlagDeals Section -->
+        <details id="section9" class="hidden">
             <summary>
                 <img src="images/redflagdeals-ca.png" style="height:26px;" alt="RedFlagDeals">
             </summary>
@@ -398,7 +408,7 @@ summary img {
         </details>
 
         <!-- Flipp Canada Section -->
-        <details id="section9" class="hidden">
+        <details id="section10" class="hidden">
             <summary>
                 <img src="images/flipp-ca.png" style="height:26px;" alt="Flipp Canada">
             </summary>
@@ -408,7 +418,7 @@ summary img {
         </details>
 
         <!-- Custom Canadian Retailer Section -->
-        <details id="section10" class="hidden">
+        <details id="section11" class="hidden">
             <summary>
                 <img src="images/canadianretailer.png" style="height:26px;" alt="Custom Canadian Retailer Search">
             </summary>
@@ -418,7 +428,7 @@ summary img {
         </details>
 
         <!-- Amazon US Section -->
-        <details id="section11" class="hidden">
+        <details id="section12" class="hidden">
             <summary>
                 <img src="images/amazon-us.png" style="height:26px;" alt="Amazon US">
             </summary>
@@ -428,7 +438,7 @@ summary img {
         </details>
 
         <!-- Walmart US Section -->
-        <details id="section12" class="hidden">
+        <details id="section13" class="hidden">
             <summary>
                 <img src="images/walmart-us.png" style="height:26px;" alt="Walmart US">
             </summary>
@@ -438,7 +448,7 @@ summary img {
         </details>
 
         <!-- eBay US Section -->
-        <details id="section13" class="hidden">
+        <details id="section14" class="hidden">
             <summary>
                 <img src="images/ebay-us.png" style="height:26px;" alt="eBay US">
             </summary>
@@ -448,7 +458,7 @@ summary img {
         </details>
 
         <!-- Slickdeals Section -->
-        <details id="section14" class="hidden">
+        <details id="section15" class="hidden">
             <summary>
                 <img src="images/slickdeals-us.png" style="height:26px;" alt="Slickdeals">
             </summary>
@@ -511,6 +521,7 @@ function handleSearch() {
     populateMetro(queryString);
     populateEmpire(queryString);
     populateCostcoCA(queryString);
+    populateA1CashandCarry(queryString);
     populateRedFlagDeals(queryString);
     populateFlipp(queryString);
     populateCustomCA(queryString);
@@ -638,6 +649,16 @@ function populateCostcoCA(q) {
         <a href='https://www.costco.ca/s?langId=-24&keyword=${q}&refine=item_program_eligibility-InWarehouse%257C%257Citem_program_eligibility-ShipIt%257C%257Citem_program_eligibility-2DayDelivery' target='_blank'>Open Costco Canada with Search Query</a><br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.google.com/search?q=site:costco.ca+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateA1CashandCarry(q) {
+    const section = document.getElementById('a1cashandcarryLinksSection');
+    section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.a1cashandcarry.com/search?q=${q}' target='_blank'>Open A1 Cash and Carry with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.google.com/search?q=site:a1cashandcarry.com+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
 
