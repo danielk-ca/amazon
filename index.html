@@ -387,6 +387,46 @@ summary img {
             </div>
         </details>
 
+        <!-- Home Depot Canada Section -->
+        <details id="section17" class="hidden">
+            <summary>
+                <img src="images/homedepot-ca.png" style="height:26px;" alt="Home Depot Canada">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="homedepotcaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- RONA Section -->
+        <details id="section18" class="hidden">
+            <summary>
+                <img src="images/rona-ca.png" style="height:26px;" alt="RONA">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="ronacaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Home Hardware Section -->
+        <details id="section19" class="hidden">
+            <summary>
+                <img src="images/homehardware-ca.png" style="height:26px;" alt="Home Hardware">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="homehardwarecaLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Princess Auto Section -->
+        <details id="section20" class="hidden">
+            <summary>
+                <img src="images/princessauto-ca.png" style="height:26px;" alt="Princess Auto">
+            </summary>
+            <div class="details-info">
+                <div class="links-section" id="princessautocaLinksSection"></div>
+            </div>
+        </details>
+
         <!-- A1 Cash and Carry Section -->
         <details id="section8" class="hidden">
             <summary>
@@ -498,12 +538,12 @@ textInput.addEventListener('keypress', function(event) {
 });
 
 // Add accordion toggle functionality
-for (let i = 1; i <= 16; i++) {
+for (let i = 1; i <= 20; i++) {
     const section = document.getElementById(`section${i}`);
     section.addEventListener('toggle', function(event) {
         if (this.open) {
             // Close all other sections
-            for (let j = 1; j <= 16; j++) {
+            for (let j = 1; j <= 20; j++) {
                 if (i !== j) {
                     document.getElementById(`section${j}`).removeAttribute('open');
                 }
@@ -519,7 +559,7 @@ function handleSearch() {
     const queryString = encodeURIComponent(query);
     
     // Show all sections
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i <= 20; i++) {
         document.getElementById(`section${i}`).classList.remove('hidden');
     }
     
@@ -531,6 +571,10 @@ function handleSearch() {
     populateMetro(queryString);
     populateEmpire(queryString);
     populateCostcoCA(queryString);
+    populateHomeDepotCA(queryString);
+    populateRona(queryString);
+    populateHomeHardware(queryString);
+    populatePrincessAuto(queryString);
     populateA1CashandCarry(queryString);
     populateRedFlagDeals(queryString);
     populateFlipp(queryString);
@@ -546,7 +590,7 @@ function handleClear() {
     textInput.value = '';
     
     // Hide and collapse all sections
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i <= 20; i++) {
         const section = document.getElementById(`section${i}`);
         section.classList.add('hidden');
         section.removeAttribute('open');
@@ -561,6 +605,7 @@ function handleRefresh() {
 function populateAmazonCA(q) {
     const section = document.getElementById('amazoncaLinksSection');
     section.innerHTML = `
+        <a href="https://www.amazon.ca/" target="_blank"><img src="images/amazon.png" style="height:26px;"></a></br><br>
         <a href="https://ca.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel.png" style="height:26px;"></a>&nbsp;&nbsp;&nbsp;
         <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
         <a href="https://www.amazon.ca/auto-deliveries/" target="_blank"><img src="images/subscribeandsave.png" style="height:26px;"></a></br><br>
@@ -670,6 +715,46 @@ function populateCostcoCA(q) {
         `;
 }
 
+function populateHomeDepotCA(q) {
+    const section = document.getElementById('homedepotcaLinksSection');
+    section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.homedepot.ca/search?q=${q}' target='_blank'>Open Home Depot Canada with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.google.com/search?q=site:homedepot.ca+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateRona(q) {
+    const section = document.getElementById('ronacaLinksSection');
+    section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.rona.ca/webapp/wcs/stores/servlet/RonaAjaxCatalogSearchView?keywords=${q}' target='_blank'>Open RONA with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.google.com/search?q=site:rona.ca+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populateHomeHardware(q) {
+    const section = document.getElementById('homehardwarecaLinksSection');
+    section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.homehardware.ca/en/search?query=${q}' target='_blank'>Open Home Hardware with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.google.com/search?q=site:homehardware.ca+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
+function populatePrincessAuto(q) {
+    const section = document.getElementById('princessautocaLinksSection');
+    section.innerHTML = `
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.princessauto.com/en/search?q=${q}' target='_blank'>Open Princess Auto with Search Query</a><br><br>
+        <img src="images/searchicon.png" style="height:20px;"><br>
+        <a href='https://www.google.com/search?q=site:princessauto.com+${q}' target='_blank'>Open Google with Search Query</a>
+        `;
+}
+
 function populateA1CashandCarry(q) {
     const section = document.getElementById('a1cashandcarryLinksSection');
     section.innerHTML = `
@@ -718,6 +803,7 @@ function populateEbayCA(q) {
 function populateAmazonUS(q) {
     const section = document.getElementById('amazonusLinksSection');
     section.innerHTML = `
+        <a href="https://www.amazon.com/" target="_blank"><img src="images/amazon.png" style="height:26px;"></a></br><br>
         <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel.png" style="height:26px;"></a>&nbsp;&nbsp;&nbsp;
         <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
