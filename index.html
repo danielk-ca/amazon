@@ -294,6 +294,19 @@ summary img {
     }
 }
 
+    /* .code-pill: Set the span class to "code-pill" to highlight commands, codes, etc. in Anthropic Claude style */
+    .code-pill {
+        display: inline-block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: 0.85em;
+        color: #8b1e1e; /* dark red text */
+        background-color: #f3f3f3;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        line-height: 1.4;
+        white-space: nowrap;
+    }
+
     </style>
 </head>
 <body>
@@ -718,6 +731,7 @@ function populateCostcoCA(q) {
 function populateHomeDepotCA(q) {
     const section = document.getElementById('homedepotcaLinksSection');
     section.innerHTML = `
+        <a href="https://www.homedepot.ca/" target="_blank"><img src="images/homedepot.png" style="height:26px;"></a></br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.homedepot.ca/search?q=${q}' target='_blank'>Open Home Depot Canada with Search Query</a><br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
@@ -803,6 +817,10 @@ function populateEbayCA(q) {
 function populateAmazonUS(q) {
     const section = document.getElementById('amazonusLinksSection');
     section.innerHTML = `
+        <img src="images/geoSVG.svg" height="20">
+        <span class="code-pill">19801</span>
+        <span class="copy-btn" onclick="copyToClipboard('19801', this)"><img src="images/copySVG.svg" alt="Copy" height="20"></span>
+        </br><br>
         <a href="https://www.amazon.com/" target="_blank"><img src="images/amazon.png" style="height:26px;"></a></br><br>
         <a href="https://www.camelcamelcamel.com/" target="_blank"><img src="images/camelcamelcamel.png" style="height:26px;"></a>&nbsp;&nbsp;&nbsp;
         <a href="https://www.keepa.com/" target="_blank"><img src="images/keepa.png" style="height:26px;"></a></br><br>
@@ -818,6 +836,7 @@ function populateAmazonUS(q) {
 function populateWalmartUS(q) {
     const section = document.getElementById('walmartusLinksSection');
     section.innerHTML = `
+        <a href="https://www.walmart.com/" target="_blank"><img src="images/walmart.png" style="height:26px;"></a></br><br>
         <img src="images/searchicon.png" style="height:20px;"><br>
         <a href='https://www.walmart.com/search?q=${q}&facet=retailer_type:Walmart' target='_blank'>Limit Search to Products Sold by Walmart US</a>
         `;
@@ -840,6 +859,71 @@ function populateSlickdeals(q) {
         <a href='https://www.google.com/search?q=site:slickdeals.net+${q}' target='_blank'>Open Google with Search Query</a>
         `;
 }
+
+// Hybrid clipboard function (Async Clipboard API & execCommand())
+// Tries to use the modern Async Clipboard API first, and if that fails falls back to the older execCommand() method
+
+  const copySVG = "images/copySVG.svg";
+  const successSVG = "images/successSVG.svg";
+
+  async function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log("Copied with Async Clipboard API ✅\n\n" + text);
+        return true;
+      } catch (err) {
+        console.warn("Async Clipboard API failed, falling back:", err);
+      }
+    }
+
+    // Fallback
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.top = "0";
+    textarea.style.left = "0";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+      const success = document.execCommand("copy");
+      console.log("Copied with execCommand ✅\n\n" + text);
+      return success;
+    } catch (err) {
+      console.warn("Clipboard copy failed ❌\n", err);
+      return false;
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
+
+  // Copy buttons (uses hybrid copyText)
+  async function copyToClipboard(text, el) {
+    const img = el.querySelector("img");
+    const success = await copyText(text);
+    if (success) {
+      img.src = successSVG;
+      setTimeout(() => { img.src = copySVG; }, 1500);
+    }
+  }
+
+  // Copy tab content (uses hybrid copyText)
+  async function copyTabContent(tabId) {
+    const tabContent = document.getElementById(tabId).innerText;
+    const btnImg = tabId === "placeTab"
+      ? document.getElementById("copyPlaceBtn")
+      : document.getElementById("copyDirectionsBtn");
+
+    const success = await copyText(tabContent);
+    if (success) {
+      btnImg.src = successSVG;
+      setTimeout(() => { btnImg.src = copySVG; }, 1500);
+    }
+  }
 
     // JavaScript Section End
 
